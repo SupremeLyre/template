@@ -1,24 +1,28 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[12pt,a4paper,AutoFakeBold]{ctexart}
 %Include graphics
 \usepackage{graphicx}
 \usepackage{graphics}
 \usepackage{color}
-\usepackage{xcolor}
+\usepackage[dvipsnames, svgnames, x11names]{xcolor}
 \usepackage{alltt}
 \usepackage{url}
 %Mathematic packages
 \usepackage{mathptmx}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{newtxmath}
+\usepackage{gensymb}% °
+%tikz
+\usepackage{tikz}
 %Chinese
-\usepackage{xeCJK}
-\xeCJKsetup{EmboldenFactor=2.3}%假粗体加粗倍率
-\newCJKfontfamily[fsong]\fangsong{Adobe Fangsong Std}[AutoFakeBold,AutoFakeSlant]%仿宋体
-\newCJKfontfamily[kai]\kaishu{Adobe Kaiti Std}[AutoFakeBold,AutoFakeSlant]%楷体
-\newCJKfontfamily[hei]\heiti{Adobe Heiti Std}[AutoFakeBold,AutoFakeSlant]%黑体
-\newCJKfontfamily[lisu]\lisu{LiSu}[AutoFakeBold,AutoFakeSlant]%隶书
-\newCJKfontfamily[yyuan]\yyuan{YouYuan}[AutoFakeBold,AutoFakeSlant]%幼圆
-\setCJKmainfont{FZNewShuSong-Z10}[AutoFakeBold,AutoFakeSlant]
+% \usepackage{xeCJK}
+% \xeCJKsetup{EmboldenFactor=2.3}%假粗体加粗倍率
+% \newCJKfontfamily[fsong]\fangsong{FangSong}[AutoFakeBold,AutoFakeSlant]%仿宋体
+% \newCJKfontfamily[kai]\kaishu{KaiTi}[AutoFakeBold,AutoFakeSlant]%楷体
+% \newCJKfontfamily[hei]\heiti{SimHei}[AutoFakeBold,AutoFakeSlant]%黑体
+% \newCJKfontfamily[lisu]\lisu{LiSu}[AutoFakeBold,AutoFakeSlant]%隶书
+% \newCJKfontfamily[yyuan]\yyuan{YouYuan}[AutoFakeBold,AutoFakeSlant]%幼圆
+% % \setCJKmainfont{FZNewShuSong-Z10}[AutoFakeBold,AutoFakeSlant]
+% \setCJKmainfont{SimSun}[AutoFakeBold,AutoFakeSlant]
 \usepackage{indentfirst}
 \setlength{\parindent}{2em}
 % \usepackage{zhspacing}
@@ -46,6 +50,17 @@
 	keywordstyle= \color{blue},%关键字颜色
 	commentstyle=\color{gray}, %注释颜色
 	frame=shadowbox%用方框框住代码块
+}
+\lstdefinelanguage{zsh}{
+    morekeywords={cd,sudo,ln,ls},
+    morecomment=[l]{\#},
+    morestring=[b]"
+}
+\lstdefinelanguage{GAMMA}{
+    morekeywords={mkdir,cp,ls,par_ASAR,create_offset,init_offset_orbit,offset_pwr,offset_fit,SLC_interp,SLC_intf,base_init,create_dem_par,gc_map,geocode,create_diff_par,offset_pwrm,offset_fitm,gc_map_fine,geocode,sub_phase,dismph_pwr,rasmph_pwr,base_add,multi_look,cc_wave,discc,rascc,base_perp,disrmg,rasdt_pwr24,phase_sim,adf,rascc_mask,mcf,dispmap,geocode_back,data2geotiff,kml_map,disrmg,rasrmg,dis2pwr,dishgt,rashgt,dispwr,raspwr,mk_tab,mk_mli_all,base_calc,mk_diff_2d,mk_adf_2d,mk_unw_2d,mk_base_2d,temp_lin_var,single_class_mapping,image2pt,mk_d2pt,ras_data_pt,MLI2pt,prox_prt,spf_pt,mb_pt,pdisdt_pwr24,prasdt_pwr24,thres_msk_pt,tpf_pt,sub_phase_pt,dispmap_pt,base_orbit_pt,def_mod_pt,cct_pt,vu_disp,pt2geo,pt2d,ras8_float,comb_hsi,disp_prt,kml_pt},
+    sensitive=true,
+    morecomment=[l]{\#},
+    morestring=[b]"
 }
 % Set page margins
 \usepackage[top=2.54cm,bottom=2.54cm,left=3.17cm,right=3.17cm]{geometry}
@@ -90,7 +105,6 @@
 \crefname{figure}{图}{图}
 \crefname{table}{表}{表}
 \crefname{algorithm}{算法}{算法}
-\usepackage{xcolor}
 \usepackage{tcolorbox}
 \graphicspath{ {Figures/} }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Starts the document
@@ -107,16 +121,16 @@
     \vspace{2.5cm}
 
     \rule{\linewidth}{2mm} \\[0.5cm]
-    { \Huge \kaishu \textbf{课程实践报告}\\[0.2em]
+    { \Huge \kaishu \textbf{结课作业}\\[0.2em]
     报告标题}\\[0.5cm]
     \rule{\linewidth}{0.6mm} \\[3.4cm]
 
     \hspace{2cm}
     \begin{tabular}{l p{5cm}}
-        \textbf{班级} & 12341234   \\[18pt]
-        \textbf{学号} & 1234123456 \\[18pt]
-        \textbf{姓名} & 舒己       \\[18pt]
-        \textbf{日期} & \today
+        \textbf{专业} & 测绘工程   \\[18pt]
+        \textbf{班级} & 10121911   \\[18pt]
+        \textbf{学号} & 1012191100 \\[18pt]
+        \textbf{姓名} & 舒己
     \end{tabular}
 
     \vspace{1.5cm}
@@ -140,30 +154,25 @@
 
 \begin{table}[H]
     \centering
-    \caption{\label{tab}各待测建筑测站数}
-    \begin{tabular}{|c|c|}
-        \hline
+    \caption{\label{tab}三线表}
+    \begin{tabular}{cc}
+        \toprule
         建筑名称 & 测站数 \\
-        \hline
+        \midrule
         逸夫楼   & 14     \\
-        \hline
         探工楼   & 10     \\
-        \hline
         综合楼   & 13     \\
-        \hline
         食堂     & 9      \\
-        \hline
         教二楼   & 15     \\
-        \hline
         教五楼   & 10     \\
-        \hline
+        \bottomrule
     \end{tabular}
 \end{table}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{校徽与中英文（蓝色中轴式）.png}
-    \caption{\label{fig:yif_std}逸夫楼拼接精度图}
+    \caption{\label{fig:yif_std}单图}
 \end{figure}
 
 \begin{figure}[H]
@@ -188,6 +197,6 @@
         \centering
         \includegraphics[width=\linewidth]{校徽与中英文（蓝色中轴式）.png}
     \end{subfigure}
-    \caption{\label{fig:boxr}手提箱模型成果}
+    \caption{\label{fig:boxr}多图}
 \end{figure}
 \end{document}
