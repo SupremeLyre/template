@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper,AutoFakeBold]{ctexart}
+\documentclass[12pt,a4paper]{article}
 %Include graphics
 \usepackage{graphicx}
 \usepackage{graphics}
@@ -10,19 +10,19 @@
 \usepackage{mathptmx}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{newtxmath}
-\usepackage{gensymb}% °
+\usepackage{textcomp,gensymb}% °
 %tikz
 \usepackage{tikz}
 %Chinese
-% \usepackage{xeCJK}
-% \xeCJKsetup{EmboldenFactor=2.3}%假粗体加粗倍率
-% \newCJKfontfamily[fsong]\fangsong{FangSong}[AutoFakeBold,AutoFakeSlant]%仿宋体
-% \newCJKfontfamily[kai]\kaishu{KaiTi}[AutoFakeBold,AutoFakeSlant]%楷体
-% \newCJKfontfamily[hei]\heiti{SimHei}[AutoFakeBold,AutoFakeSlant]%黑体
-% \newCJKfontfamily[lisu]\lisu{LiSu}[AutoFakeBold,AutoFakeSlant]%隶书
-% \newCJKfontfamily[yyuan]\yyuan{YouYuan}[AutoFakeBold,AutoFakeSlant]%幼圆
-% % \setCJKmainfont{FZNewShuSong-Z10}[AutoFakeBold,AutoFakeSlant]
-% \setCJKmainfont{SimSun}[AutoFakeBold,AutoFakeSlant]
+\usepackage{xeCJK}
+\xeCJKsetup{EmboldenFactor=2.3}%假粗体加粗倍率
+\newCJKfontfamily[fsong]\fangsong{FangSong}[AutoFakeBold,AutoFakeSlant]%仿宋体
+\newCJKfontfamily[kai]\kaishu{KaiTi}[AutoFakeBold,AutoFakeSlant]%楷体
+\newCJKfontfamily[hei]\heiti{SimHei}[AutoFakeBold,AutoFakeSlant]%黑体
+\newCJKfontfamily[lisu]\lisu{LiSu}[AutoFakeBold,AutoFakeSlant]%隶书
+\newCJKfontfamily[yyuan]\yyuan{YouYuan}[AutoFakeBold,AutoFakeSlant]%幼圆
+% \setCJKmainfont{FZNewShuSong-Z10}[AutoFakeBold,AutoFakeSlant]
+\setCJKmainfont{SimSun}[AutoFakeBold,AutoFakeSlant]
 \usepackage{indentfirst}
 \setlength{\parindent}{2em}
 % \usepackage{zhspacing}
@@ -50,17 +50,6 @@
 	keywordstyle= \color{blue},%关键字颜色
 	commentstyle=\color{gray}, %注释颜色
 	frame=shadowbox%用方框框住代码块
-}
-\lstdefinelanguage{zsh}{
-    morekeywords={cd,sudo,ln,ls},
-    morecomment=[l]{\#},
-    morestring=[b]"
-}
-\lstdefinelanguage{GAMMA}{
-    morekeywords={mkdir,cp,ls,par_ASAR,create_offset,init_offset_orbit,offset_pwr,offset_fit,SLC_interp,SLC_intf,base_init,create_dem_par,gc_map,geocode,create_diff_par,offset_pwrm,offset_fitm,gc_map_fine,geocode,sub_phase,dismph_pwr,rasmph_pwr,base_add,multi_look,cc_wave,discc,rascc,base_perp,disrmg,rasdt_pwr24,phase_sim,adf,rascc_mask,mcf,dispmap,geocode_back,data2geotiff,kml_map,disrmg,rasrmg,dis2pwr,dishgt,rashgt,dispwr,raspwr,mk_tab,mk_mli_all,base_calc,mk_diff_2d,mk_adf_2d,mk_unw_2d,mk_base_2d,temp_lin_var,single_class_mapping,image2pt,mk_d2pt,ras_data_pt,MLI2pt,prox_prt,spf_pt,mb_pt,pdisdt_pwr24,prasdt_pwr24,thres_msk_pt,tpf_pt,sub_phase_pt,dispmap_pt,base_orbit_pt,def_mod_pt,cct_pt,vu_disp,pt2geo,pt2d,ras8_float,comb_hsi,disp_prt,kml_pt},
-    sensitive=true,
-    morecomment=[l]{\#},
-    morestring=[b]"
 }
 % Set page margins
 \usepackage[top=2.54cm,bottom=2.54cm,left=3.17cm,right=3.17cm]{geometry}
